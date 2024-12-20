@@ -20,12 +20,16 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
-        run: npm install --no-package-lock # Modified this line
+        run: |
+          npm install
+          npm install -g typescript  # Ensure TypeScript is available
 
       - name: Build
-        run: npm run build
+        run: |
+          tsc
+          npm run build
 
       - name: Publish to NPM
-        run: npm publish
+        run: npm publish --access public # Added --access public flag
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
