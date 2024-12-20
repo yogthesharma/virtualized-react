@@ -26,7 +26,7 @@ Here's a simple example of how to use the VirtualizedList component:
 
 ```JS
 import React from 'react';
-import { VirtualizedList } from 'your-package-name';
+import { VirtualizedList } from 'virtualized-react';
 
 const App = () => {
   // Create an array of 1000 items
@@ -64,7 +64,7 @@ export default App;
 
 ```JS
 import React from 'react';
-import { VirtualizedList } from 'your-package-name';
+import { VirtualizedList } from 'virtualized-react';
 
 const AdvancedExample = () => {
   const complexItems = Array(1000).fill(null).map((_, index) => (
