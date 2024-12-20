@@ -2,14 +2,13 @@ name: Publish Package to NPM
 on:
   push:
     branches:
-      - main # or your default branch
-    # Optionally trigger only when package.json changes
+      - main
     paths:
       - "package.json"
 
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04 # Pinned version
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build # Assuming you have a build script
+        run: npm run build
 
       - name: Publish to NPM
         run: npm publish
