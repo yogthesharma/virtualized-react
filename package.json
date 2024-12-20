@@ -8,6 +8,10 @@
     "build": "tsc",
     "prepare": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yogthesharma/virtualized-react"
+  },
   "keywords": [
     "react",
     "virtualized",
