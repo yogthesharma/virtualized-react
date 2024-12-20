@@ -1,0 +1,37 @@
+{
+  "name": "virtualized-react",
+  "version": "0.0.4",
+  "description": "Basic React.js component for rendering virtualized lists",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "virtualized",
+    "list",
+    "scroll",
+    "performance",
+    "typescript"
+  ],
+  "author": "Yog Sharma",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "typescript": "^5.7.2",
+    "virtualized-react": "^0.0.1"
+  },
+  "devDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0"
+  }
+}
