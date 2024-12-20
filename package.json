@@ -1,6 +1,6 @@
 {
   "name": "virtualized-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Basic React.js component for rendering virtualized lists",
   "main": "dist/index.js",
   "scripts": {
