@@ -18,11 +18,13 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
-          cache: "npm" # Enable npm caching
+          cache: "npm"
+          # Add this line to properly set up npm authentication
+          scope: "@your-scope" # If you're using a scoped package, otherwise remove this line
 
       - name: Install dependencies
         run: |
-          npm ci || npm install # Try npm ci first, fall back to npm install if no package-lock.json
+          npm ci || npm install
           npm install -g typescript
 
       - name: Create package-lock.json if missing
@@ -41,6 +43,9 @@ jobs:
           npm run build
 
       - name: Publish to NPM
-        run: npm publish --access public
+        # Add authentication step before publishing
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
