@@ -18,18 +18,29 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
+          cache: "npm" # Enable npm caching
 
       - name: Install dependencies
         run: |
-          npm install
-          npm install -g typescript  # Ensure TypeScript is available
+          npm ci || npm install # Try npm ci first, fall back to npm install if no package-lock.json
+          npm install -g typescript
+
+      - name: Create package-lock.json if missing
+        run: |
+          if [ ! -f package-lock.json ]; then
+            npm install --package-lock-only
+            git config --global user.email "github-actions[bot]@users.noreply.github.com"
+            git config --global user.name "github-actions[bot]"
+            git add package-lock.json
+            git commit -m "chore: Add package-lock.json [skip ci]" || true
+            git push || true
+          fi
 
       - name: Build
         run: |
-          tsc
           npm run build
 
       - name: Publish to NPM
-        run: npm publish --access public # Added --access public flag
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
