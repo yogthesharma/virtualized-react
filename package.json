@@ -1,6 +1,6 @@
 {
   "name": "virtualized-react",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Basic React.js component for rendering virtualized lists",
   "main": "dist/index.js",
   "homepage": "https://yogthesharma.github.io/virtualized-react-example/",
