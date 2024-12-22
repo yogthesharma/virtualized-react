@@ -1,8 +1,9 @@
 {
   "name": "virtualized-react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Basic React.js component for rendering virtualized lists",
   "main": "dist/index.js",
+  "homepage": "https://yogthesharma.github.io/virtualized-react-example/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
